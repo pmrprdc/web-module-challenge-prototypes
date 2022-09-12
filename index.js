@@ -1,3 +1,5 @@
+
+
 // 👇 COMPLETE YOUR WORK BELOW 👇
 /* ❗❗ NOTE: PLEASE USE INDIVIDUAL KEYS FOR YOUR CONSTRUCTOR PARAMETERS, NOT OBJECTS. THE TESTS WILL NOT PASS WITH OBJECTS. ❗❗  */
 
@@ -15,9 +17,25 @@
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+this.name = name;
+this.age = age;
+this.stomach = [];
 }
+
+Person.prototype.eat = function(string) {
+  if (this.stomach.length < 10){
+  this.stomach.push(string);};
+}
+
+Person.prototype.poop =  function () {
+  this.stomach = [];
+}
+
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`
+}
+
 
 
 /*
@@ -36,8 +54,15 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+this.model = model;
+this.milesPerGallon = milesPerGallon;
+this.tank = 0;
+this.odometer = 0;
+}
 
+Car.prototype.fill = function (gallons) {
+  this.tank+= gallons;
 }
 
 
